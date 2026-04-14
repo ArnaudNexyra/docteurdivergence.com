@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-// Force rebuild: 2026-04-14-16-18
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -145,7 +144,6 @@ export default function AISection() {
   return (
     <section
       id="ai"
-      data-v="2"
       className="relative overflow-hidden py-24 bg-white"
     >
       <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(11,42,89,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(11,42,89,0.03)_1px,transparent_1px)] bg-[size:36px_36px]" />
