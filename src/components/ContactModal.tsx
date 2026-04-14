@@ -1,6 +1,5 @@
 "use client";
 
-import { useContactModal } from "@/context/ContactModalContext";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar, Phone, Mail, User, MessageSquare, Send, CheckCircle2 } from "lucide-react";
@@ -16,10 +15,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [charCount, setCharCount] = useState(0);
+  const [dateValue, setDateValue] = useState("");
+  const [timeValue, setTimeValue] = useState("");
 
   const handleClose = () => {
     setIsSubmitted(false);
     setError(null);
+    setDateValue("");
+    setTimeValue("");
     onClose();
   };
 
@@ -37,6 +40,11 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!dateValue || !timeValue) {
+      setError("Veuillez sélectionner une date et une heure.");
+      return;
+    }
+
     setIsLoading(true);
     setError(null);
 
@@ -199,19 +207,35 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label htmlFor="dateTime" className="text-xs font-bold uppercase tracking-wider text-[#0B2A59]/60">
+                    <label className="text-xs font-bold uppercase tracking-wider text-[#0B2A59]/60">
                       Disponibilités souhaitées
                     </label>
-                    <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="relative">
+                        <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
+                        <input
+                          required
+                          type="date"
+                          id="dateValue"
+                          value={dateValue}
+                          onChange={(e) => setDateValue(e.target.value)}
+                          className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2.5 pl-10 pr-3 text-sm transition focus:border-[#D4AF37] focus:outline-none focus:ring-1 focus:ring-[#D4AF37]"
+                        />
+                      </div>
                       <input
                         required
-                        type="datetime-local"
-                        id="dateTime"
-                        name="dateTime"
-                        className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2.5 pl-10 pr-4 text-sm transition focus:border-[#D4AF37] focus:outline-none focus:ring-1 focus:ring-[#D4AF37]"
+                        type="time"
+                        id="timeValue"
+                        value={timeValue}
+                        onChange={(e) => setTimeValue(e.target.value)}
+                        className="w-full rounded-lg border border-gray-200 bg-gray-50 py-2.5 px-4 text-sm transition focus:border-[#D4AF37] focus:outline-none focus:ring-1 focus:ring-[#D4AF37]"
                       />
                     </div>
+                    <input
+                      type="hidden"
+                      name="dateTime"
+                      value={dateValue && timeValue ? `${dateValue}T${timeValue}` : ""}
+                    />
                   </div>
 
                   <div className="space-y-1.5">
