@@ -3,11 +3,11 @@ import ScrollReveal from "@/components/ScrollReveal";
 const features = [
   {
     title: "Des supports qui restent accessibles",
-    desc: "Appels, recap, captures d'ecran et plans de marche restent faciles a retrouver pour retravailler proprement.",
+    desc: "Appels, récap, captures d'écran et plans de marché restent faciles à retrouver pour retravailler proprement.",
   },
   {
-    title: "Une memoire de progression exploitable",
-    desc: "Le but n'est pas d'empiler des infos, mais de garder ce qui aide vraiment a corriger les mauvaises habitudes.",
+    title: "Une mémoire de progression exploitable",
+    desc: "Le but n'est pas d'empiler des infos, mais de garder ce qui aide vraiment à corriger les mauvaises habitudes.",
   },
 ] satisfies { title: string; desc: string }[];
 
@@ -29,10 +29,10 @@ export default function ResearchSection() {
             >
               Preparation et relecture
             </p>
-            <h2 className="section-title">Ne perds plus ce que le marche t&apos;apprend.</h2>
+            <h2 className="section-title">Ne perds plus ce que le marché t&apos;apprend.</h2>
             <p className="section-subtitle">
-              Entre deux sessions, tout ce qui compte doit pouvoir etre retrouve vite: scenarii, captures,
-              remarques sur l&apos;execution et points de vigilance pour la suite.
+              Entre deux sessions, tout ce qui compte doit pouvoir être retrouvé vite : scénarii, captures,
+              remarques sur l&apos;exécution et points de vigilance pour la suite.
             </p>
           </div>
         </ScrollReveal>

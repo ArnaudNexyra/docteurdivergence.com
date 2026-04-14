@@ -8,18 +8,18 @@ interface CardData {
 
 const cards: CardData[] = [
   {
-    title: "Tes erreurs recurrentes deviennent visibles.",
-    description: "Les prises de position ne restent plus des impressions floues: elles se relisent et se comparent.",
+    title: "Tes erreurs récurrentes deviennent visibles.",
+    description: "Les prises de position ne restent plus des impressions floues : elles se relisent et se comparent.",
     image: "/images/q-c92fad10.png",
   },
   {
     title: "Chaque session garde une trace utile.",
-    description: "Plans de marche, captures, notes et retours s'empilent dans un meme fil logique.",
+    description: "Plans de marché, captures, notes et retours s'empilent dans un même fil logique.",
     image: "/images/q-f6418f24.png",
   },
   {
     title: "La progression reste lisible dans le temps.",
-    description: "Tu vois ce qui s'ameliore, ce qui revient trop souvent et ce qu'il faut corriger en priorite.",
+    description: "Tu vois ce qui s'améliore, ce qui revient trop souvent et ce qu'il faut corriger en priorité.",
     image: "/images/q-871c3758.png",
   },
 ];
@@ -63,14 +63,14 @@ export default function ConnectedSection() {
                 marginBottom: 12,
               }}
             >
-              Tout ton parcours reste relie
+              Tout ton parcours reste relié
             </p>
 
-            <h2 className="section-title">Relie preparation, execution et retour d&apos;experience.</h2>
+            <h2 className="section-title">Relie préparation, exécution et retour d&apos;expérience.</h2>
 
             <p className="section-subtitle" style={{ maxWidth: 600, margin: "0 auto" }}>
-              Le template Reflect s&apos;appuie sur des cartes tres visuelles. Ici, elles montrent comment
-              l&apos;accompagnement rassemble les analyses, les erreurs et les progres au meme endroit.
+              Le template Reflect s&apos;appuie sur des cartes très visuelles. Ici, elles montrent comment
+              l&apos;accompagnement rassemble les analyses, les erreurs et les progrès au même endroit.
             </p>
           </div>
         </ScrollReveal>

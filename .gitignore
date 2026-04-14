@@ -47,3 +47,10 @@ next-env.d.ts
 
 # Local temp files
 temp/
+
+# AI Agent logs and workspaces
+.claude/
+.antigravity/
+.aider*
+.windsurf*
+.cursor*

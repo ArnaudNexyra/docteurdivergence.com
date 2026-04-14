@@ -25,14 +25,14 @@ export default function AboutSection() {
           <div className="space-y-6">
             <div className="dd-badge-light max-w-max">
               <span className="h-2 w-2 rounded-full bg-[#0B2A59]" />
-              Pourquoi Docteur Divergence
+              Pourquoi Docteur Divergence ?
             </div>
             <h2 className="max-w-xl text-4xl font-bold md:text-5xl text-[#0B2A59] uppercase" style={{ fontFamily: "var(--font-heading)" }}>
               Un accompagnement construit sur le réel.
             </h2>
             <p className="max-w-xl text-lg leading-8 text-[#1a1a1a]/80 font-medium">
-              Docteur Divergence s'adresse à celles et ceux qui veulent enfin poser un cadre sérieux à leur pratique :
-              comprendre ce qu'ils regardent, mieux préparer les prises de décision et sortir de la spirale des essais
+              Docteur Divergence s&apos;adresse à celles et ceux qui veulent enfin poser un cadre sérieux à leur pratique :
+              comprendre ce qu&apos;ils regardent, mieux préparer les prises de décision et sortir de la spirale des essais
               sans méthode.
             </p>
           </div>

@@ -15,9 +15,9 @@ interface CalendarPiece {
 
 const calendarPieces: CalendarPiece[] = [
   { label: "Appel diagnostic", value: "Point niveau + blocages", accent: "#d4af37", position: { top: "10%", left: "-5%" } },
-  { label: "Debrief execution", value: "Review des trades", accent: "#4f8bf9", position: { top: "25%", right: "-4%" } },
-  { label: "Routine hebdo", value: "Preparation de semaine", accent: "#d32f2f", position: { bottom: "20%", left: "-3%" } },
-  { label: "Suivi discipline", value: "Actions a tenir", accent: "#133d7f", position: { bottom: "10%", right: "-5%" } },
+  { label: "Débrief exécution", value: "Review des trades", accent: "#4f8bf9", position: { top: "25%", right: "-4%" } },
+  { label: "Routine hebdo", value: "Préparation de semaine", accent: "#d32f2f", position: { bottom: "20%", left: "-3%" } },
+  { label: "Suivi discipline", value: "Actions à tenir", accent: "#133d7f", position: { bottom: "10%", right: "-5%" } },
 ];
 
 export default function MeetingsSection() {
@@ -53,10 +53,10 @@ export default function MeetingsSection() {
             >
               Calendrier de suivi
             </p>
-            <h2 className="section-title">Conserve le calendrier anime, mais au service du suivi trader.</h2>
+            <h2 className="section-title">Conserve le calendrier animé, mais au service du suivi du trader.</h2>
             <p className="section-subtitle">
-              La mise en scene originale reste intacte: un agenda vivant, des cartes flottantes et une sensation
-              d&apos;organisation. Ici, il sert a vendre le rythme de travail et la regularite des points de controle.
+              La mise en scène originale reste intacte : un agenda vivant, des cartes flottantes et une sensation
+              d&apos;organisation. Ici, il sert à vendre le rythme de travail et la régularité des points de contrôle.
             </p>
           </div>
         </ScrollReveal>

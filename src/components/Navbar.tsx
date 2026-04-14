@@ -11,8 +11,11 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ] as const;
 
+import { useContactModal } from "@/context/ContactModalContext";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { openContactModal } = useContactModal();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
@@ -51,9 +54,12 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a href="mailto:adjutonatyem@gmail.com" className="dd-button-primary px-6 py-2.5 text-[14px] uppercase tracking-wider font-bold rounded-[6px]">
+        <button 
+          onClick={openContactModal}
+          className="dd-button-primary px-6 py-2.5 text-[14px] uppercase tracking-wider font-bold rounded-[6px]"
+        >
           Réserver un appel
-        </a>
+        </button>
       </div>
     </header>
   );

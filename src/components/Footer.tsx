@@ -20,7 +20,7 @@ export default function Footer() {
             Services
           </a>
           <a href="#credibilite" className="no-underline transition hover:text-[#0b2a59]">
-            Credibilite
+            Crédibilité
           </a>
           <a href="mailto:adjutonatyem@gmail.com" className="no-underline transition hover:text-[#0b2a59]">
             Email

@@ -1,4 +1,7 @@
+'use client';
+
 import ScrollReveal from "@/components/ScrollReveal";
+import { useContactModal } from "@/context/ContactModalContext";
 
 const features = [
   "Point complet sur ton niveau actuel et tes blocages",
@@ -10,6 +13,8 @@ const features = [
 ];
 
 export default function PricingSection() {
+  const { openContactModal } = useContactModal();
+
   return (
     <section
       id="pricing"
@@ -39,7 +44,7 @@ export default function PricingSection() {
               Évaluation initiale
             </p>
             <h2 className="section-title">Un premier point simple pour cadrer la suite.</h2>
-            <p className="section-subtitle">Sans abonnement imposé, avec un plan d'action clair dès le départ.</p>
+            <p className="section-subtitle">Sans abonnement imposé, avec un plan d&apos;action clair dès le départ.</p>
           </div>
         </ScrollReveal>
 
@@ -137,12 +142,11 @@ export default function PricingSection() {
               ))}
             </ul>
 
-            <a
-              href="mailto:adjutonatyem@gmail.com"
-              className="dd-button-primary uppercase tracking-wider"
+            <button
+              onClick={openContactModal}
+              className="dd-button-primary uppercase tracking-wider w-full"
               style={{
                 textAlign: "center",
-                width: "100%",
                 fontSize: 14,
                 padding: "16px 24px",
                 display: "block",
@@ -151,7 +155,7 @@ export default function PricingSection() {
               }}
             >
               <span>Demander un premier échange</span>
-            </a>
+            </button>
           </div>
         </ScrollReveal>
       </div>

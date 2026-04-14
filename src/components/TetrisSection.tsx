@@ -1,10 +1,10 @@
 import ScrollReveal from "@/components/ScrollReveal";
 
 const roadmap = [
-  "Clarifier ton profil, tes erreurs recurrentes et ton niveau reel",
-  "Poser une methode de lecture du marche et de preparation des setups",
-  "Travailler la discipline, la patience et la coherence d'execution",
-  "Installer un suivi regulier pour progresser sans rester seul",
+  "Clarifier ton profil, tes erreurs récurrentes et ton niveau réel",
+  "Poser une méthode de lecture du marché et de préparation des setups",
+  "Travailler la discipline, la patience et la cohérence d'exécution",
+  "Installer un suivi régulier pour progresser sans rester seul",
 ];
 
 export default function TetrisSection() {
@@ -18,13 +18,13 @@ export default function TetrisSection() {
               <div className="space-y-6">
                 <div className="dd-badge max-w-max">
                   <span className="h-2 w-2 rounded-full bg-[#d4af37]" />
-                  Methode
+                  Méthode
                 </div>
                 <h2 className="max-w-lg text-4xl font-medium md:text-5xl">
-                  Une progression guidee pour remettre de l&apos;ordre dans ton trading.
+                  Une progression guidée pour remettre de l&apos;ordre dans ton trading.
                 </h2>
                 <p className="dd-text-muted max-w-xl text-lg leading-8">
-                  Le travail se fait pas a pas: on part de ton niveau actuel, on identifie les failles qui coutent
+                  Le travail se fait pas à pas : on part de ton niveau actuel, on identifie les failles qui coûtent
                   cher, puis on installe une routine plus propre pour tenir dans le temps.
                 </p>
                 <a href="mailto:adjutonatyem@gmail.com" className="dd-button-secondary">
@@ -38,7 +38,7 @@ export default function TetrisSection() {
                 <div className="mb-6 flex items-center justify-between">
                   <span className="text-sm uppercase tracking-[0.16em] text-white/56">Plan de travail</span>
                   <span className="rounded-full border border-[#d4af37]/30 bg-[#d4af37]/12 px-3 py-1 text-xs font-semibold text-[#f0cf68]">
-                    Orientation resultat
+                    Orientation résultat
                   </span>
                 </div>
 
@@ -48,7 +48,7 @@ export default function TetrisSection() {
                       <div className="mb-3 flex items-center justify-between gap-4">
                         <p className="text-base leading-7 text-white/88">{item}</p>
                         <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/48">
-                          Etape 0{index + 1}
+                          Étape 0{index + 1}
                         </span>
                       </div>
                       <div className="h-2 rounded-full bg-white/10">

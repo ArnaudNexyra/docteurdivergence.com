@@ -11,24 +11,24 @@ interface Integration {
 const integrations: Integration[] = [
   {
     name: "TradingView",
-    description: "Relier la pratique reelle du marche a un environnement ou les analyses et publications restent visibles.",
+    description: "Relier la pratique réelle du marché à un environnement où les analyses et publications restent visibles.",
     logoBg: "#2962ff",
     logoChar: "T",
   },
   {
     name: "Google Agenda",
-    description: "Poser des rendez-vous de suivi et garder un rythme simple a tenir dans le temps.",
+    description: "Poser des rendez-vous de suivi et garder un rythme simple à tenir dans le temps.",
     logoBg: "#34a853",
     logoChar: "G",
   },
   {
-    name: "Email & recap",
-    description: "Recevoir les points a retravailler et les prochaines actions sans se disperser.",
+    name: "Email & récap",
+    description: "Recevoir les points à retravailler et les prochaines actions sans se disperser.",
     logoImg: "/images/q-ffb847cc.png",
   },
   {
     name: "Captures et supports",
-    description: "Centraliser screenshots, schemas et elements de contexte utiles a la progression.",
+    description: "Centraliser screenshots, schémas et éléments de contexte utiles à la progression.",
     logoImg: "/images/q-0fbeed8c.png",
   },
 ];
@@ -86,12 +86,12 @@ export default function IntegrationsSection() {
                 marginBottom: 12,
               }}
             >
-              Ecosysteme
+              Écosystème
             </p>
             <h2 className="section-title">Le template garde son souffle produit, mais parle du parcours client.</h2>
             <p className="section-subtitle">
-              On garde la grille, les halos et la logique "integrations", mais on l&apos;oriente vers les outils et
-              points de contact utiles au suivi propose par Docteur Divergence.
+              On garde la grille, les halos et la logique &quot;intégrations&quot;, mais on l&apos;oriente vers les outils et
+              points de contact utiles au suivi proposé par Docteur Divergence.
             </p>
           </div>
         </ScrollReveal>

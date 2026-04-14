@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
@@ -67,7 +68,13 @@ export default function EncryptionSection() {
             marginBottom: 40,
           }}
         >
-          <img src="/images/q-92fb8db8.png" alt="Discipline et structure" style={{ width: 200, height: "auto" }} />
+          <Image 
+            src="/images/q-92fb8db8.png" 
+            alt="Discipline et structure" 
+            width={200} 
+            height={200} 
+            className="w-[200px] h-auto"
+          />
         </div>
       </ScrollReveal>
 
@@ -88,8 +95,8 @@ export default function EncryptionSection() {
             </p>
             <h2 className="section-title">Couper le bruit pour garder un cadre net.</h2>
             <p className="section-subtitle">
-              Entre l&apos;euphorie, la peur et la surcharge d&apos;informations, le vrai enjeu est de revenir a quelques
-              regles stables: contexte, risque, execution et patience.
+              Entre l&apos;euphorie, la peur et la surcharge d&apos;informations, le vrai enjeu est de revenir à quelques
+              règles stables : contexte, risque, exécution et patience.
             </p>
           </div>
         </div>

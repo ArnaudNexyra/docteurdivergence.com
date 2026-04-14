@@ -76,6 +76,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { ContactModalProvider } from "@/context/ContactModalContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -86,7 +88,11 @@ export default function RootLayout({
       <head>
         <JsonLdSchema />
       </head>
-      <body>{children}</body>
+      <body>
+        <ContactModalProvider>
+          {children}
+        </ContactModalProvider>
+      </body>
     </html>
   );
 }

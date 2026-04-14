@@ -6,12 +6,15 @@ import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const highlights = [
-  "6 ans pour devenir rentable et en faire un metier a temps plein",
-  "Accompagnement humain pour debutants comme traders deja actifs",
-  "Approche discipline, psychologie et execution, pas promesses faciles",
+  "6 ans pour devenir rentable et en faire un métier à temps plein",
+  "Accompagnement humain pour débutants comme traders déjà actifs",
+  "Approche disciplinée, psychologie et exécution, pas promesses faciles",
 ];
 
+import { useContactModal } from "@/context/ContactModalContext";
+
 export default function HeroSection() {
+  const { openContactModal } = useContactModal();
   const [currentQuote, setCurrentQuote] = useState(0);
   const quotes = [
     "J'ai échoué plus de 40 fois, je sais exactement quelle mécanique psychologique et émotionnelle adopter pour réussir.",
@@ -24,7 +27,7 @@ export default function HeroSection() {
       setCurrentQuote((prev) => (prev + 1) % quotes.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [quotes.length]);
 
   return (
     <section className="relative overflow-hidden pb-20 pt-32 text-[#1a1a1a] md:pb-28 md:pt-40">
@@ -56,9 +59,15 @@ export default function HeroSection() {
 
           <ScrollReveal delay={180}>
             <div className="flex flex-wrap gap-4 relative z-10">
+              <button 
+                onClick={openContactModal}
+                className="dd-button-primary px-8"
+              >
+                Prendre rendez-vous
+              </button>
               <a 
                 href="https://www.youtube.com/@doc.divergence" 
-                className="dd-button-primary"
+                className="dd-button-secondary no-underline inline-flex items-center"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -67,12 +76,6 @@ export default function HeroSection() {
                 </svg>
                 Suivre une leçon
               </a>
-              <div
-                className="dd-button-secondary opacity-60 cursor-not-allowed select-none"
-                style={{ pointerEvents: 'none' }}
-              >
-                Formation : Coming soon
-              </div>
             </div>
           </ScrollReveal>
 
@@ -116,7 +119,7 @@ export default function HeroSection() {
                 <p className="text-sm uppercase tracking-[0.16em] text-[#0b2a59] font-bold">Objectif</p>
                 <p className="mt-4 text-[14px] leading-relaxed text-[#1a1a1a]/80 font-medium">
                   Faire progresser le trader sur ses entrées, sa discipline et sa capacité à rester cohérent dans la
-                  durée avec l'Ichimoku. L'accompagnement permet d'identifier et corriger précisément vos biais psychologiques. Finis les paris au hasard : apprenez à lire le marché de manière chirurgicale et à appliquer la routine stricte d'un trader rentable.
+                  durée avec l&apos;Ichimoku. L&apos;accompagnement permet d&apos;identifier et corriger précisément vos biais psychologiques. Finis les paris au hasard : apprenez à lire le marché de manière chirurgicale et à appliquer la routine stricte d&apos;un trader rentable.
                 </p>
               </div>
 
@@ -125,8 +128,8 @@ export default function HeroSection() {
                   <p className="text-sm uppercase tracking-[0.16em] text-[#0b2a59]/70 font-bold">Points forts</p>
                   <div className="mt-4 space-y-3">
                     <StatRow label="Analyse technique" value="Ichimoku" color="#0b2a59" />
-                    <StatRow label="Suivi regulier" value="Continue" color="#d4af37" />
-                    <StatRow label="Psychologie du trader" value="Concrete" color="#d32f2f" />
+                    <StatRow label="Suivi régulier" value="Continue" color="#d4af37" />
+                    <StatRow label="Psychologie du trader" value="Concrète" color="#d32f2f" />
                   </div>
                 </div>
                 <div className="rounded-[4px] bg-[#f0f3f8] px-5 py-4 text-[13px] leading-relaxed font-medium text-[#0b2a59] border-l-4 border-[#d32f2f] min-h-[80px] shadow-inner">

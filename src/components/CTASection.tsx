@@ -16,7 +16,7 @@ export default function CTASection() {
                 Contact
               </div>
               <h2 className="mt-5 text-4xl font-bold md:text-5xl text-[#0B2A59] uppercase tracking-tight" style={{ fontFamily: "var(--font-heading)" }}>
-                Besoin d'un cadre clair pour votre trading ?
+                Besoin d&apos;un cadre clair pour votre trading ?
               </h2>
               <p className="mt-5 text-[17px] leading-8 text-[#1a1a1a]/80 font-medium">
                 Commençons par un échange direct pour faire le point sur votre situation, vos blocages et définir ensemble l'accompagnement le plus adapté pour atteindre la rentabilité.

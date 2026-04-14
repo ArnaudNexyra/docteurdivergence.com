@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -55,9 +56,9 @@ const CheckIcon = () => (
 );
 
 const features = [
-  "Transformer un setup brouillon en plan d'action de marché structuré.",
-  "Mettre noir sur blanc la logique d'un trade selon l'analyse Ichimoku.",
-  "Structurer une checklist simple avant chaque session pour éviter l'impulsion.",
+  "Transformer un setup brouillon en plan d&apos;action de marché structuré.",
+  "Mettre noir sur blanc la logique d&apos;un trade selon l&apos;analyse Ichimoku.",
+  "Structurer une checklist simple avant chaque session pour éviter l&apos;impulsion.",
   "Conserver des routines de préparation et sécuriser son capital.",
 ];
 
@@ -107,12 +108,12 @@ const mockPosts = [
   {
     id: 8,
     title: "Elle se fait une place !",
-    text: "Dell se fait une place dans la cour des grands de l'IA grâce à ses serveurs. Et cela se ressent graphiquement. En effet la bougie mensuelle d'Août 2024 est un marteau qui...",
+    text: "Dell se fait une place dans la cour des grands de l'IA grâce à ses serveurs. Et cela se ressent graphiquement. En effet la bougie mensuelle d'août 2024 est un marteau qui...",
     image: "/images/media__1776124609820.png",
   },
   {
     id: 9,
-    title: "Je sais je force avec TOTALENERGIE",
+    title: "Je sais je force avec TotalEnergies",
     text: "MAIS ! Cette fois-ci c'est la bonne ! Oui en effet on vient frapper le niveau d'ATH et en même temps on a une divergence qui ne laisse...",
     image: "/images/media__1776124623352.png",
   },
@@ -125,18 +126,18 @@ const mockPosts = [
   {
     id: 11,
     title: "Je vous partage un raisonnement philosophique",
-    text: "Analyse sur une vision temporelle très longue et comparative (16 ans). On étudie la solidité des dynamiques de prix face aux évènements extérieurs.",
+    text: "Analyse sur une vision temporelle très longue et comparative (16 ans). On étudie la solidité des dynamiques de prix face aux événements extérieurs.",
     image: "/images/media__1776124655991.png",
   }
 ];
 
 export default function AISection() {
   const [currentPost, setCurrentPost] = useState(0);
+  const nextPost = () => setCurrentPost((prev) => (prev + 1) % mockPosts.length);
+  const prevPost = () => setCurrentPost((prev) => (prev - 1 + mockPosts.length) % mockPosts.length);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentPost((prev) => (prev + 1) % mockPosts.length);
-    }, 12000);
+    const timer = setInterval(nextPost, 12000);
     return () => clearInterval(timer);
   }, []);
 
@@ -172,9 +173,10 @@ export default function AISection() {
                 borderRadius: 16,
                 padding: 16,
                 boxShadow: "0 10px 40px rgba(11,42,89,0.05)",
-                minHeight: "400px",
+                minHeight: "440px",
                 display: "flex",
                 flexDirection: "column",
+                userSelect: "none"
               }}
             >
               <div
@@ -188,22 +190,47 @@ export default function AISection() {
                   marginBottom: 16,
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "space-between",
                   gap: 8,
                   fontWeight: 500
                 }}
               >
-                <SearchIcon />
-                Analyses TradingView récentes...
+                <div className="flex items-center gap-2">
+                  <SearchIcon />
+                  Analyses TradingView
+                </div>
+                <div className="flex gap-1">
+                  {mockPosts.map((_, i) => (
+                    <div 
+                      key={i}
+                      onClick={() => setCurrentPost(i)}
+                      className="cursor-pointer transition-all duration-300"
+                      style={{ 
+                        width: currentPost === i ? 16 : 6, 
+                        height: 6, 
+                        borderRadius: 3, 
+                        backgroundColor: currentPost === i ? "#0B2A59" : "rgba(11,42,89,0.2)" 
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
 
               <div className="relative flex-1 overflow-hidden" style={{ borderRadius: 8 }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentPost}
-                    initial={{ opacity: 0, scale: 0.98, y: 15 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.98, y: -15 }}
-                    transition={{ duration: 1.2, ease: "easeInOut" }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
+                    onDragEnd={(_, info) => {
+                      if (info.offset.x > 80) prevPost();
+                      else if (info.offset.x < -80) nextPost();
+                    }}
                     style={{
                       background: "#ffffff",
                       borderRadius: 8,
@@ -213,24 +240,40 @@ export default function AISection() {
                       height: "100%",
                       display: "flex",
                       flexDirection: "column",
+                      cursor: "grab",
+                      touchAction: "pan-y"
                     }}
+                    whileTap={{ cursor: "grabbing" }}
                   >
                     <div style={{ height: "180px", width: "100%", position: "relative", overflow: "hidden", backgroundColor: "#0B2A59" }}>
-                      <img 
+                      <Image 
                         src={mockPosts[currentPost].image} 
                         alt="Chart preview" 
-                        style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.8 }} 
+                        fill
+                        draggable={false}
+                        className="object-cover opacity-80"
                       />
                     </div>
                     <div style={{ padding: "16px", flex: 1, display: "flex", flexDirection: "column" }}>
-                      <div style={{ color: "#0B2A59", fontWeight: 700, fontSize: "16px", marginBottom: "8px", fontFamily: "var(--font-heading)" }}>
-                        {mockPosts[currentPost].title}
+                      <div className="flex items-center justify-between mb-2">
+                        <div style={{ color: "#0B2A59", fontWeight: 700, fontSize: "16px", fontFamily: "var(--font-heading)" }}>
+                          {mockPosts[currentPost].title}
+                        </div>
+                        <span className="text-[10px] bg-[#f4f6f9] px-2 py-0.5 rounded-full text-[#0B2A59]/60 font-bold">
+                          {currentPost + 1} / {mockPosts.length}
+                        </span>
                       </div>
                       <div style={{ fontSize: "13px", color: "#1a1a1a", opacity: 0.8, lineHeight: 1.6 }}>
                         {mockPosts[currentPost].text}
                       </div>
-                      <a href="https://fr.tradingview.com/u/DocteurDivergence/#published-charts" target="_blank" rel="noreferrer" style={{ marginTop: "auto", paddingTop: "12px", display: "inline-block", fontSize: "12px", fontWeight: "bold", color: "#D32F2F", textTransform: "uppercase" }}>
-                        Voir l'analyse →
+                      <a 
+                        href="https://fr.tradingview.com/u/DocteurDivergence/#published-charts" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        draggable={false}
+                        style={{ marginTop: "auto", paddingTop: "12px", display: "inline-block", fontSize: "12px", fontWeight: "bold", color: "#D32F2F", textTransform: "uppercase" }}
+                      >
+                        Voir l&apos;analyse →
                       </a>
                     </div>
                   </motion.div>
