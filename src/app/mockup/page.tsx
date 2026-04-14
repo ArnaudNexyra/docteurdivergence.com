@@ -13,7 +13,7 @@ export default function MockupPage() {
         <div>
           <h1 className="font-heading text-4xl font-bold text-[#0B2A59]">Validation Visuelle (Page Mockup)</h1>
           <p className="mt-4 text-lg text-gray-600">
-            Cette page permet de valider le rendu du formulaire et de l&apos;email avant l&apos;intégration finale.
+            Cette page permet de valider le rendu du formulaire et de l'email avant l'intégration finale.
           </p>
         </div>
 
@@ -25,22 +25,22 @@ export default function MockupPage() {
               onClick={() => setIsModalOpen(true)}
               className="dd-button-primary"
             >
-              Tester l&apos;ouverture du formulaire
+              Tester l'ouverture du formulaire
             </button>
           </div>
           <p className="text-sm text-gray-500">
-            Clique sur le bouton ci-dessus pour voir le formulaire s&apos;afficher. Il respecte ta demande : Logo bien posé sur blanc, minimaliste, tout en français.
+            Clique sur le bouton ci-dessus pour voir le formulaire s'afficher. Il respecte ta demande : Logo bien posé sur blanc, minimaliste, tout en français.
           </p>
         </section>
 
         {/* Section Email Preview */}
         <section className="rounded-2xl border border-gray-200 bg-white p-10 shadow-lg">
-          <h2 className="mb-8 text-2xl font-bold text-[#0B2A59]">2. L&apos;Email de Confirmation (Aperçu)</h2>
+          <h2 className="mb-8 text-2xl font-bold text-[#0B2A59]">2. L'Email de Confirmation (Aperçu)</h2>
           
           <div className="mx-auto max-w-2xl overflow-hidden rounded-xl border border-gray-100 shadow-2xl">
             {/* Simulation d'un email */}
             <div className="bg-gray-100 px-4 py-2 text-[10px] text-gray-400">
-              Objet : Confirmation de votre demande d&apos;entretien téléphonique — Docteur Divergence
+              Objet : Confirmation de votre demande d'entretien téléphonique — Docteur Divergence
             </div>
             
             <div className="bg-white p-8">
@@ -60,7 +60,7 @@ export default function MockupPage() {
               <div className="space-y-6 text-[#0B2A59]">
                 <h3 className="text-xl font-bold">Bonjour [Prénom],</h3>
                 <p className="leading-relaxed text-gray-700">
-                  Nous avons bien reçu votre demande d&apos;entretien pour un accompagnement trading.
+                  Nous avons bien reçu votre demande d'entretien pour un accompagnement trading.
                   Natyem prendra connaissance de vos disponibilités et reviendra vers vous très prochainement.
                 </p>
 
@@ -74,12 +74,12 @@ export default function MockupPage() {
                 </div>
 
                 <p className="leading-relaxed text-gray-700">
-                  D&apos;ici là, vous pouvez continuer à suivre les dernières analyses directement sur TradingView.
+                  D'ici là, vous pouvez continuer à suivre les dernières analyses directement sur TradingView.
                 </p>
 
                 <div className="pt-8">
                   <p className="text-sm font-bold">À très bientôt,</p>
-                  <p className="text-sm text-[#D4AF37]">L&apos;équipe Docteur Divergence</p>
+                  <p className="text-sm text-[#D4AF37]">L'équipe Docteur Divergence</p>
                 </div>
               </div>
 
@@ -93,7 +93,7 @@ export default function MockupPage() {
           </div>
           
           <p className="mt-8 text-center text-sm text-gray-500 italic">
-            Note : Natyem recevra un email similaire mais avec tous les détails techniques pour se préparer à l&apos;appel.
+            Note : Natyem recevra un email similaire mais avec tous les détails techniques pour se préparer à l'appel.
           </p>
         </section>
 
@@ -111,3 +111,4 @@ export default function MockupPage() {
     </div>
   );
 }
+

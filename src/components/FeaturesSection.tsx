@@ -35,7 +35,7 @@ export default function FeaturesSection() {
               Un cadre simple à comprendre, exigeant à suivre, pensé pour durer.
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1a1a1a]/80 font-medium">
-              Notre promesse n&apos;est pas de vous vendre du rêve, mais de vous forger des compétences. Des retours réguliers, des méthodes éprouvées (Ichimoku) et une lecture de marché lucide.
+              Notre promesse n'est pas de vous vendre du rêve, mais de vous forger des compétences. Des retours réguliers, des méthodes éprouvées (Ichimoku) et une lecture de marché lucide.
             </p>
           </div>
         </ScrollReveal>
@@ -81,3 +81,4 @@ export default function FeaturesSection() {
     </section>
   );
 }
+

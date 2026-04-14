@@ -44,7 +44,7 @@ export default function PricingSection() {
               Évaluation initiale
             </p>
             <h2 className="section-title">Un premier point simple pour cadrer la suite.</h2>
-            <p className="section-subtitle">Sans abonnement imposé, avec un plan d&apos;action clair dès le départ.</p>
+            <p className="section-subtitle">Sans abonnement imposé, avec un plan d'action clair dès le départ.</p>
           </div>
         </ScrollReveal>
 
@@ -90,7 +90,7 @@ export default function PricingSection() {
                 fontWeight: 500
               }}
             >
-              l&apos;appel individuel de diagnostic
+              l'appel individuel de diagnostic
             </p>
 
             <ul
@@ -162,3 +162,4 @@ export default function PricingSection() {
     </section>
   );
 }
+

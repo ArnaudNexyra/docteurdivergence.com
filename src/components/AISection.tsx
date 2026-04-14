@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+// Force rebuild: 2026-04-14-16-18
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -56,9 +57,9 @@ const CheckIcon = () => (
 );
 
 const features = [
-  "Transformer un setup brouillon en plan d&apos;action de marché structuré.",
-  "Mettre noir sur blanc la logique d&apos;un trade selon l&apos;analyse Ichimoku.",
-  "Structurer une checklist simple avant chaque session pour éviter l&apos;impulsion.",
+  "Transformer un setup brouillon en plan d’action de marché structuré.",
+  "Mettre noir sur blanc la logique d’un trade selon l’analyse Ichimoku.",
+  "Structurer une checklist simple avant chaque session pour éviter l’impulsion.",
   "Conserver des routines de préparation et sécuriser son capital.",
 ];
 
@@ -144,6 +145,7 @@ export default function AISection() {
   return (
     <section
       id="ai"
+      data-v="2"
       className="relative overflow-hidden py-24 bg-white"
     >
       <div className="absolute inset-0 z-0 bg-[linear-gradient(rgba(11,42,89,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(11,42,89,0.03)_1px,transparent_1px)] bg-[size:36px_36px]" />
@@ -273,7 +275,7 @@ export default function AISection() {
                         draggable={false}
                         style={{ marginTop: "auto", paddingTop: "12px", display: "inline-block", fontSize: "12px", fontWeight: "bold", color: "#D32F2F", textTransform: "uppercase" }}
                       >
-                        Voir l&apos;analyse →
+                        Voir l'analyse →
                       </a>
                     </div>
                   </motion.div>

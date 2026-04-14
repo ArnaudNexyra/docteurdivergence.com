@@ -29,10 +29,10 @@ export default function ResearchSection() {
             >
               Preparation et relecture
             </p>
-            <h2 className="section-title">Ne perds plus ce que le marché t&apos;apprend.</h2>
+            <h2 className="section-title">Ne perds plus ce que le marché t'apprend.</h2>
             <p className="section-subtitle">
               Entre deux sessions, tout ce qui compte doit pouvoir être retrouvé vite : scénarii, captures,
-              remarques sur l&apos;exécution et points de vigilance pour la suite.
+              remarques sur l'exécution et points de vigilance pour la suite.
             </p>
           </div>
         </ScrollReveal>
@@ -95,3 +95,4 @@ export default function ResearchSection() {
     </section>
   );
 }
+

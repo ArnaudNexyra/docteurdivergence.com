@@ -66,11 +66,11 @@ export default function ConnectedSection() {
               Tout ton parcours reste relié
             </p>
 
-            <h2 className="section-title">Relie préparation, exécution et retour d&apos;expérience.</h2>
+            <h2 className="section-title">Relie préparation, exécution et retour d'expérience.</h2>
 
             <p className="section-subtitle" style={{ maxWidth: 600, margin: "0 auto" }}>
-              Le template Reflect s&apos;appuie sur des cartes très visuelles. Ici, elles montrent comment
-              l&apos;accompagnement rassemble les analyses, les erreurs et les progrès au même endroit.
+              Le template Reflect s'appuie sur des cartes très visuelles. Ici, elles montrent comment
+              l'accompagnement rassemble les analyses, les erreurs et les progrès au même endroit.
             </p>
           </div>
         </ScrollReveal>
@@ -140,3 +140,4 @@ export default function ConnectedSection() {
     </section>
   );
 }
+

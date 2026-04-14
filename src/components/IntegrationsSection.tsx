@@ -90,7 +90,7 @@ export default function IntegrationsSection() {
             </p>
             <h2 className="section-title">Le template garde son souffle produit, mais parle du parcours client.</h2>
             <p className="section-subtitle">
-              On garde la grille, les halos et la logique &quot;intégrations&quot;, mais on l&apos;oriente vers les outils et
+              On garde la grille, les halos et la logique "intégrations", mais on l'oriente vers les outils et
               points de contact utiles au suivi proposé par Docteur Divergence.
             </p>
           </div>
@@ -167,3 +167,5 @@ export default function IntegrationsSection() {
     </section>
   );
 }
+
+

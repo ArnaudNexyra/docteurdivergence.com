@@ -100,7 +100,7 @@ export default function HeroSection() {
                 <h2 className="text-3xl font-bold text-[#0b2a59] uppercase" style={{ fontFamily: "var(--font-heading)" }}>Suivi axe rentabilite</h2>
               </div>
               <div className="rounded-[4px] border border-[#d4af37]/30 bg-[#d4af37]/10 px-3 py-1 text-sm text-[#0b2a59] font-medium">
-                Finance &amp; Expertise
+                Finance & Expertise
               </div>
             </div>
 
@@ -118,7 +118,7 @@ export default function HeroSection() {
                 <p className="text-sm uppercase tracking-[0.16em] text-[#0b2a59] font-bold">Objectif</p>
                 <p className="mt-4 text-[14px] leading-relaxed text-[#1a1a1a]/80 font-medium">
                   Faire progresser le trader sur ses entrées, sa discipline et sa capacité à rester cohérent dans la
-                  durée avec l&apos;Ichimoku. L&apos;accompagnement permet d&apos;identifier et corriger précisément vos biais psychologiques. Finis les paris au hasard : apprenez à lire le marché de manière chirurgicale et à appliquer la routine stricte d&apos;un trader rentable.
+                  durée avec l'Ichimoku. L'accompagnement permet d'identifier et corriger précisément vos biais psychologiques. Finis les paris au hasard : apprenez à lire le marché de manière chirurgicale et à appliquer la routine stricte d'un trader rentable.
                 </p>
               </div>
 
@@ -141,7 +141,7 @@ export default function HeroSection() {
                       transition={{ duration: 0.4, ease: "easeInOut" }}
                       className="italic w-full"
                     >
-                      &quot;{quotes[currentQuote]}&quot;
+                      "{quotes[currentQuote]}"
                     </motion.div>
                   </AnimatePresence>
                 </div>
@@ -162,3 +162,5 @@ function StatRow({ label, value, color }: { label: string; value: string; color:
     </div>
   );
 }
+
+

@@ -56,7 +56,7 @@ export default function MeetingsSection() {
             <h2 className="section-title">Conserve le calendrier animé, mais au service du suivi du trader.</h2>
             <p className="section-subtitle">
               La mise en scène originale reste intacte : un agenda vivant, des cartes flottantes et une sensation
-              d&apos;organisation. Ici, il sert à vendre le rythme de travail et la régularité des points de contrôle.
+              d'organisation. Ici, il sert à vendre le rythme de travail et la régularité des points de contrôle.
             </p>
           </div>
         </ScrollReveal>
@@ -119,3 +119,4 @@ export default function MeetingsSection() {
     </section>
   );
 }
+

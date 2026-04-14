@@ -26,10 +26,10 @@ export default function TestimonialsSection() {
               Crédibilité & Rigueur
             </div>
             <h2 className="mt-5 text-4xl font-bold md:text-5xl text-[#0B2A59] uppercase" style={{ fontFamily: "var(--font-heading)" }}>
-              L&apos;excellence au service de vos résultats.
+              L'excellence au service de vos résultats.
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1a1a1a]/80 font-medium">
-              Une image institutionnelle bâtie sur l&apos;action concrète. Les outils fournis proviennent de stratégies qui ont fait leurs preuves dans un environnement à forte pression.
+              Une image institutionnelle bâtie sur l'action concrète. Les outils fournis proviennent de stratégies qui ont fait leurs preuves dans un environnement à forte pression.
             </p>
           </div>
         </ScrollReveal>
@@ -67,9 +67,9 @@ export default function TestimonialsSection() {
             <article className="dd-card-light rounded-[8px] p-8 h-full flex flex-col justify-between border-t-4" style={{ borderTopColor: "#D32F2F" }}>
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#0B2A59]/60">Écosystème Analytique</p>
-                <h3 className="mt-4 text-2xl font-bold text-[#0B2A59]" style={{ fontFamily: "var(--font-heading)" }}>La data avant l&apos;émotion.</h3>
+                <h3 className="mt-4 text-2xl font-bold text-[#0B2A59]" style={{ fontFamily: "var(--font-heading)" }}>La data avant l'émotion.</h3>
                 <p className="mt-4 text-base leading-7 text-[#1a1a1a]/80 font-medium">
-                  Le marché ne fait pas de cadeaux. C&apos;est pourquoi nous utilisons des outils techniques neutres pour écarter le biais psychologique et trader la réalité objective du prix et des équilibres Ichimoku.
+                  Le marché ne fait pas de cadeaux. C'est pourquoi nous utilisons des outils techniques neutres pour écarter le biais psychologique et trader la réalité objective du prix et des équilibres Ichimoku.
                 </p>
               </div>
 
@@ -98,3 +98,4 @@ export default function TestimonialsSection() {
     </section>
   );
 }
+

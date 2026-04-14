@@ -95,7 +95,7 @@ export default function EncryptionSection() {
             </p>
             <h2 className="section-title">Couper le bruit pour garder un cadre net.</h2>
             <p className="section-subtitle">
-              Entre l&apos;euphorie, la peur et la surcharge d&apos;informations, le vrai enjeu est de revenir à quelques
+              Entre l'euphorie, la peur et la surcharge d'informations, le vrai enjeu est de revenir à quelques
               règles stables : contexte, risque, exécution et patience.
             </p>
           </div>
@@ -104,3 +104,4 @@ export default function EncryptionSection() {
     </section>
   );
 }
+

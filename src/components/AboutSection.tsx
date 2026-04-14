@@ -31,8 +31,8 @@ export default function AboutSection() {
               Un accompagnement construit sur le réel.
             </h2>
             <p className="max-w-xl text-lg leading-8 text-[#1a1a1a]/80 font-medium">
-              Docteur Divergence s&apos;adresse à celles et ceux qui veulent enfin poser un cadre sérieux à leur pratique :
-              comprendre ce qu&apos;ils regardent, mieux préparer les prises de décision et sortir de la spirale des essais
+              Docteur Divergence s'adresse à celles et ceux qui veulent enfin poser un cadre sérieux à leur pratique :
+              comprendre ce qu'ils regardent, mieux préparer les prises de décision et sortir de la spirale des essais
               sans méthode.
             </p>
           </div>
@@ -59,3 +59,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

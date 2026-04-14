@@ -21,7 +21,7 @@ export default function TetrisSection() {
                   Méthode
                 </div>
                 <h2 className="max-w-lg text-4xl font-medium md:text-5xl">
-                  Une progression guidée pour remettre de l&apos;ordre dans ton trading.
+                  Une progression guidée pour remettre de l'ordre dans ton trading.
                 </h2>
                 <p className="dd-text-muted max-w-xl text-lg leading-8">
                   Le travail se fait pas à pas : on part de ton niveau actuel, on identifie les failles qui coûtent
@@ -78,3 +78,4 @@ export default function TetrisSection() {
     </section>
   );
 }
+
