@@ -11,10 +11,7 @@ const highlights = [
   "Approche disciplinée, psychologie et exécution, pas promesses faciles",
 ];
 
-import { useContactModal } from "@/context/ContactModalContext";
-
 export default function HeroSection() {
-  const { openContactModal } = useContactModal();
   const [currentQuote, setCurrentQuote] = useState(0);
   const quotes = [
     "J'ai échoué plus de 40 fois, je sais exactement quelle mécanique psychologique et émotionnelle adopter pour réussir.",
@@ -59,12 +56,14 @@ export default function HeroSection() {
 
           <ScrollReveal delay={180}>
             <div className="flex flex-wrap gap-4 relative z-10">
-              <button 
-                onClick={openContactModal}
+              <a
+                href="https://calendar.app.google/gb3hrkXL4iTwSTET8"
+                target="_blank"
+                rel="noreferrer"
                 className="dd-button-primary px-8"
               >
                 Prendre rendez-vous
-              </button>
+              </a>
               <a 
                 href="https://www.youtube.com/@doc.divergence" 
                 className="dd-button-secondary no-underline inline-flex items-center"
