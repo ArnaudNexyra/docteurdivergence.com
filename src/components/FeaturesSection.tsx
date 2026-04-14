@@ -1,25 +1,6 @@
 import ScrollReveal from "@/components/ScrollReveal";
 
-const services = [
-  {
-    title: "Diagnostic Personnalisé",
-    description:
-      "Un appel individuel pour évaluer votre niveau d'analyse macro/micro, repérer vos biais récurrents et structurer votre prochaine étape.",
-    accent: "Appel 1h à partir de 60 €",
-  },
-  {
-    title: "Formation Trading",
-    description:
-      "Un cursus intensif centré sur la structure de prix, l'Ichimoku Kinko Hyo, la gestion stricte du risque et l'exécution sans hésitation.",
-    accent: "Niveaux débutant & intermédiaire",
-  },
-  {
-    title: "Mentorat Continu",
-    description:
-      "Ne restez plus isolé face aux marchés. Assistance ciblée et validation de setups pour instaurer une rigueur professionnelle au quotidien.",
-    accent: "Orientation discipline & régularité",
-  },
-] as const;
+import { services } from "@/lib/data";
 
 export default function FeaturesSection() {
   return (

@@ -1,19 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
-
-const pillars = [
-  {
-    title: "Expérience vécue",
-    text: "Le discours vient d'un parcours long, avec des erreurs, des remises en question et un passage structuré vers le trading à temps plein.",
-  },
-  {
-    title: "Mécanique Mentale",
-    text: "Le travail ne porte pas seulement sur les graphiques. Il porte aussi sur les réflexes émotionnels qui sabotent la régularité du trader.",
-  },
-  {
-    title: "Suivi Accessible",
-    text: "Une pédagogie qui parle aux débutants comme aux profils plus avertis, sans promesses intenables ni jargon inutile.",
-  },
-] as const;
+import { pillars, aboutHeader } from "@/lib/data";
 
 export default function AboutSection() {
   return (
@@ -28,12 +14,10 @@ export default function AboutSection() {
               Pourquoi Docteur Divergence ?
             </div>
             <h2 className="max-w-xl text-4xl font-bold md:text-5xl text-[#0B2A59] uppercase" style={{ fontFamily: "var(--font-heading)" }}>
-              Un accompagnement construit sur le réel.
+              {aboutHeader.title}
             </h2>
             <p className="max-w-xl text-lg leading-8 text-[#1a1a1a]/80 font-medium">
-              Docteur Divergence s'adresse à celles et ceux qui veulent enfin poser un cadre sérieux à leur pratique :
-              comprendre ce qu'ils regardent, mieux préparer les prises de décision et sortir de la spirale des essais
-              sans méthode.
+              {aboutHeader.subtitle}
             </p>
           </div>
         </ScrollReveal>

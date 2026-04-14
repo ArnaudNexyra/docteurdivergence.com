@@ -1,11 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
-
-const roadmap = [
-  "Clarifier ton profil, tes erreurs récurrentes et ton niveau réel",
-  "Poser une méthode de lecture du marché et de préparation des setups",
-  "Travailler la discipline, la patience et la cohérence d'exécution",
-  "Installer un suivi régulier pour progresser sans rester seul",
-];
+import { roadmap, tetrisHeader } from "@/lib/data";
 
 export default function TetrisSection() {
   return (
@@ -21,11 +15,10 @@ export default function TetrisSection() {
                   Méthode
                 </div>
                 <h2 className="max-w-lg text-4xl font-medium md:text-5xl">
-                  Une progression guidée pour remettre de l'ordre dans ton trading.
+                  {tetrisHeader.title}
                 </h2>
                 <p className="dd-text-muted max-w-xl text-lg leading-8">
-                  Le travail se fait pas à pas : on part de ton niveau actuel, on identifie les failles qui coûtent
-                  cher, puis on installe une routine plus propre pour tenir dans le temps.
+                  {tetrisHeader.subtitle}
                 </p>
                 <a href="mailto:trading@docteurdivergence.com" className="dd-button-secondary">
                   Parler de mon profil

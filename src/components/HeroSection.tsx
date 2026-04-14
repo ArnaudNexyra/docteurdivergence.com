@@ -5,19 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
-const highlights = [
-  "6 ans pour devenir rentable et en faire un métier à temps plein",
-  "Accompagnement humain pour débutants comme traders déjà actifs",
-  "Approche disciplinée, psychologie et exécution, pas promesses faciles",
-];
+import { highlights, quotes } from "@/lib/data";
 
 export default function HeroSection() {
   const [currentQuote, setCurrentQuote] = useState(0);
-  const quotes = [
-    "J'ai échoué plus de 40 fois, je sais exactement quelle mécanique psychologique et émotionnelle adopter pour réussir.",
-    "Trader à temps plein, il m'a fallu 6 ans pour être rentable. La persévérance finit toujours par triompher.",
-    "Aujourd'hui je suis libre géographiquement. Je vous transmets mon expérience du terrain sans aucun filtre."
-  ];
 
   useEffect(() => {
     const timer = setInterval(() => {

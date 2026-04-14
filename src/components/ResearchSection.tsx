@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const features = [
@@ -40,14 +41,19 @@ export default function ResearchSection() {
         <div className="grid grid-cols-1 items-center gap-20 md:grid-cols-2">
           <ScrollReveal>
             <div style={{ position: "relative" }}>
-              <img
+              <Image
                 src="/images/q-62492b69.png"
                 alt="Visualisation de preparation et relecture"
-                style={{ width: "100%", opacity: 0.85 }}
+                width={800}
+                height={600}
+                style={{ width: "100%", height: "auto", opacity: 0.85 }}
+                priority
               />
-              <img
+              <Image
                 src="/images/docteur-divergence-logo.png"
                 alt="Repere central"
+                width={80}
+                height={80}
                 style={{
                   position: "absolute",
                   top: "50%",

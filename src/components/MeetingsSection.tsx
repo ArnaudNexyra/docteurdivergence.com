@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 
 interface CalendarPiece {
@@ -63,10 +64,13 @@ export default function MeetingsSection() {
 
         <ScrollReveal delay={100}>
           <div style={{ position: "relative", maxWidth: 900, margin: "0 auto" }}>
-            <img
+            <Image
               src="/images/q-7bea4872.png"
               alt="Calendrier de suivi et points de controle"
-              style={{ width: "100%", borderRadius: 16, display: "block", opacity: 0.9 }}
+              width={900}
+              height={600}
+              style={{ width: "100%", height: "auto", borderRadius: 16, display: "block", opacity: 0.9 }}
+              priority
             />
 
             {calendarPieces.map((piece, i) => {

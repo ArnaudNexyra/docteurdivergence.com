@@ -1,24 +1,12 @@
 import ScrollReveal from "@/components/ScrollReveal";
-
-const proofPoints = [
-  {
-    title: "Expertise technique",
-    text: "Une maîtrise approfondie de l'Ichimoku Kinko Hyo et de l'analyse des divergences, testée sur les marchés en temps réel.",
-  },
-  {
-    title: "Transparence totale",
-    text: "Aucun faux espoir. La rentabilité exige discipline, gestion du risque et temps. C'est ce que nous transmettons.",
-  },
-  {
-    title: "Parcours de terrain",
-    text: "Plus de 6 années d'expérimentation avant d'atteindre la rentabilité constante et de l'enseigner avec légitimité.",
-  },
-] as const;
+import { proofPoints, testimonialsHeader } from "@/lib/data";
 
 export default function TestimonialsSection() {
   return (
-    <section id="credibilite" className="py-24 bg-white relative overflow-hidden">
-      <div className="reflect-container relative z-10">
+    <section id="credibility" className="py-24 bg-[#F4F6F9] relative overflow-hidden">
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(211,47,47,0.03)_0,transparent_60%)]" />
+
+      <div className="dd-container relative z-10">
         <ScrollReveal>
           <div className="mx-auto max-w-3xl text-center">
             <div className="dd-badge-light mx-auto max-w-max mb-6">
@@ -26,10 +14,10 @@ export default function TestimonialsSection() {
               Crédibilité & Rigueur
             </div>
             <h2 className="mt-5 text-4xl font-bold md:text-5xl text-[#0B2A59] uppercase" style={{ fontFamily: "var(--font-heading)" }}>
-              L'excellence au service de vos résultats.
+              {testimonialsHeader.title}
             </h2>
             <p className="mt-5 text-lg leading-8 text-[#1a1a1a]/80 font-medium">
-              Une image institutionnelle bâtie sur l'action concrète. Les outils fournis proviennent de stratégies qui ont fait leurs preuves dans un environnement à forte pression.
+              {testimonialsHeader.subtitle}
             </p>
           </div>
         </ScrollReveal>

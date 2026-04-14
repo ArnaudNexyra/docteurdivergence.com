@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
+import { encryptionHeader } from "@/lib/data";
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
 const GRID_SIZE = 400;
@@ -93,10 +94,9 @@ export default function EncryptionSection() {
             >
               Discipline
             </p>
-            <h2 className="section-title">Couper le bruit pour garder un cadre net.</h2>
+            <h2 className="section-title">{encryptionHeader.title}</h2>
             <p className="section-subtitle">
-              Entre l'euphorie, la peur et la surcharge d'informations, le vrai enjeu est de revenir à quelques
-              règles stables : contexte, risque, exécution et patience.
+              {encryptionHeader.subtitle}
             </p>
           </div>
         </div>
