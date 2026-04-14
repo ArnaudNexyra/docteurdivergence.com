@@ -70,9 +70,9 @@ export const metadata: Metadata = {
     images: ["/seo/og-image.png"],
   },
   icons: {
-    icon: "/images/logo.png",
-    shortcut: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/images/docteur-divergence-logo.png",
+    shortcut: "/images/docteur-divergence-logo.png",
+    apple: "/images/docteur-divergence-logo.png",
   },
 };
 
