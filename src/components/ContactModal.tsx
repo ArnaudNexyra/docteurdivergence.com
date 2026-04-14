@@ -17,6 +17,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [error, setError] = useState<string | null>(null);
   const [charCount, setCharCount] = useState(0);
 
+  const handleClose = () => {
+    setIsSubmitted(false);
+    setError(null);
+    onClose();
+  };
+
   // Empêcher le scroll quand la modale est ouverte
   useEffect(() => {
     if (isOpen) {
@@ -74,7 +80,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={handleClose}
             className="fixed inset-0 z-[100] bg-[#0B2A59]/40 backdrop-blur-md"
           />
 
@@ -86,7 +92,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           >
             <div className="relative flex flex-col items-center border-b border-gray-100 bg-white p-8 pt-10 text-center">
               <button
-                onClick={onClose}
+                onClick={handleClose}
                 className="absolute right-4 top-4 rounded-full p-2 text-gray-400 transition hover:bg-gray-100 hover:text-[#0B2A59]"
               >
                 <X size={20} />
@@ -280,7 +286,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     Natyem a été prévenu et reviendra vers vous par email ou téléphone dans les plus brefs délais.
                   </p>
                   <button
-                    onClick={onClose}
+                    onClick={handleClose}
                     className="mt-10 font-bold text-[#D4AF37] underline transition hover:text-[#0B2A59]"
                   >
                     Fermer la fenêtre
