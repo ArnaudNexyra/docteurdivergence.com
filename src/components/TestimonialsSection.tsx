@@ -3,7 +3,7 @@ import { proofPoints, testimonialsHeader } from "@/lib/data";
 
 export default function TestimonialsSection() {
   return (
-    <section id="credibility" className="py-24 bg-[#F4F6F9] relative overflow-hidden">
+    <section id="credibilite" className="py-24 bg-[#F4F6F9] relative overflow-hidden">
       <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(211,47,47,0.03)_0,transparent_60%)]" />
 
       <div className="dd-container relative z-10">
