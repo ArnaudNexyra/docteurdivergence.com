@@ -27,7 +27,7 @@ export default function TetrisSection() {
                   Le travail se fait pas à pas : on part de ton niveau actuel, on identifie les failles qui coûtent
                   cher, puis on installe une routine plus propre pour tenir dans le temps.
                 </p>
-                <a href="mailto:adjutonatyem@gmail.com" className="dd-button-secondary">
+                <a href="mailto:trading@docteurdivergence.com" className="dd-button-secondary">
                   Parler de mon profil
                 </a>
               </div>

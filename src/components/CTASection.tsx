@@ -26,7 +26,7 @@ export default function CTASection() {
 
           <ScrollReveal delay={120}>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <a href="mailto:adjutonatyem@gmail.com" className="dd-button-primary text-[15px] px-8 py-3.5 uppercase tracking-wider font-bold rounded-[8px]">
+              <a href="mailto:trading@docteurdivergence.com" className="dd-button-primary text-[15px] px-8 py-3.5 uppercase tracking-wider font-bold rounded-[8px]">
                 Prendre rendez-vous
               </a>
               <a

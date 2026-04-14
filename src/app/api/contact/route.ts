@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 // Si la clé est absente, on utilise une version de test ou on log l'erreur
 const resend = new Resend(process.env.RESEND_API_KEY || "re_123");
 
-const NATYEM_EMAIL = "adjutonatyem@gmail.com";
+const NATYEM_EMAIL = "trading@docteurdivergence.com";
 const LOGO_URL = "https://docteurdivergence.com/images/docteur-divergence-logo.png";
 
 export async function POST(request: Request) {
@@ -74,7 +74,7 @@ export async function POST(request: Request) {
     // Envoi des emails (Resend supporte le batching ou envois séparés)
     // Notification à Natyem
     await resend.emails.send({
-      from: "Docteur Divergence <contact@docteurdivergence.com>",
+      from: "Docteur Divergence <trading@docteurdivergence.com>",
       to: NATYEM_EMAIL,
       subject: `Nouveau contact : ${firstName} ${lastName}`,
       html: natyemEmailHtml,
@@ -82,7 +82,7 @@ export async function POST(request: Request) {
 
     // Confirmation au client
     await resend.emails.send({
-      from: "Docteur Divergence <contact@docteurdivergence.com>",
+      from: "Docteur Divergence <trading@docteurdivergence.com>",
       to: email,
       subject: "Confirmation de votre demande d'entretien — Docteur Divergence",
       html: clientEmailHtml,
