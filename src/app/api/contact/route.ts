@@ -32,7 +32,7 @@ export async function POST(request: Request) {
 
     // 1. Notification à Natyem
     const { error: err1 } = await resend.emails.send({
-      from: "Docteur Divergence <onboarding@resend.dev>",
+      from: "Docteur Divergence <trading@docteurdivergence.com>",
       to: NATYEM_EMAIL,
       subject: `📞 Nouveau contact : ${firstName} ${lastName}`,
       html: emailWrapper(`
@@ -63,7 +63,7 @@ export async function POST(request: Request) {
 
     // 2. Confirmation au client
     const { error: err2 } = await resend.emails.send({
-      from: "Docteur Divergence <onboarding@resend.dev>",
+      from: "Docteur Divergence <trading@docteurdivergence.com>",
       to: email,
       subject: "Votre demande d'entretien est bien reçue — Docteur Divergence",
       html: emailWrapper(`
