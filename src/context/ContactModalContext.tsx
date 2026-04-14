@@ -2,24 +2,59 @@
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import ContactModal from "@/components/ContactModal";
+import PaymentModal from "@/components/PaymentModal";
+
+type PostPaymentAction = "contact" | "calendar";
+
+const CALENDAR_URL = "https://calendar.app.google/gb3hrkXL4iTwSTET8";
 
 interface ContactModalContextType {
   openContactModal: () => void;
+  openCalendarModal: () => void;
   closeContactModal: () => void;
 }
 
 const ContactModalContext = createContext<ContactModalContextType | undefined>(undefined);
 
 export function ContactModalProvider({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isPaymentOpen, setIsPaymentOpen] = useState(false);
+  const [postPaymentAction, setPostPaymentAction] = useState<PostPaymentAction>("contact");
 
-  const openContactModal = () => setIsOpen(true);
-  const closeContactModal = () => setIsOpen(false);
+  const openContactModal = () => {
+    setPostPaymentAction("contact");
+    setIsPaymentOpen(true);
+  };
+
+  const openCalendarModal = () => {
+    setPostPaymentAction("calendar");
+    setIsPaymentOpen(true);
+  };
+
+  const closeContactModal = () => {
+    setIsContactOpen(false);
+    setIsPaymentOpen(false);
+  };
+
+  const handlePaymentSuccess = () => {
+    if (postPaymentAction === "calendar") {
+      window.open(CALENDAR_URL, "_blank", "noreferrer");
+    } else {
+      setIsContactOpen(true);
+    }
+  };
 
   return (
-    <ContactModalContext.Provider value={{ openContactModal, closeContactModal }}>
+    <ContactModalContext.Provider value={{ openContactModal, openCalendarModal, closeContactModal }}>
       {children}
-      <ContactModal isOpen={isOpen} onClose={closeContactModal} />
+      <PaymentModal
+        isOpen={isPaymentOpen}
+        onClose={() => setIsPaymentOpen(false)}
+        onSuccess={handlePaymentSuccess}
+        amount={60}
+        label="Appel de diagnostic"
+      />
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </ContactModalContext.Provider>
   );
 }

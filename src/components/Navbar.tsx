@@ -80,20 +80,24 @@ export default function Navbar() {
         </nav>
 
         {/* Bouton — se réduit en bulle flottante au scroll */}
-        <button
-          onClick={openContactModal}
-          className="dd-button-primary font-bold uppercase tracking-wider"
-          style={{
-            padding: scrolled ? "8px 18px" : "10px 24px",
-            fontSize: scrolled ? "11px" : "14px",
-            borderRadius: scrolled ? "100px" : "6px",
-            boxShadow: scrolled ? "0 4px 20px rgba(11,42,89,0.25)" : "none",
-            transition: "all 0.5s ease",
-            whiteSpace: "nowrap",
-          }}
-        >
-          Réserver un appel
-        </button>
+        <div className="flex flex-col items-center gap-0.5">
+          <button
+            disabled
+            className="dd-button-primary font-bold uppercase tracking-wider cursor-not-allowed opacity-40 grayscale"
+            style={{
+              padding: scrolled ? "8px 18px" : "10px 24px",
+              fontSize: scrolled ? "11px" : "14px",
+              borderRadius: scrolled ? "100px" : "6px",
+              transition: "all 0.5s ease",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Réserver un appel
+          </button>
+          <span className="text-[10px] font-semibold italic text-[#0B2A59]/40 tracking-wide">
+            Coming soon…
+          </span>
+        </div>
       </div>
     </header>
   );

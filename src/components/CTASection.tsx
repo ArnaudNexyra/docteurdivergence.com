@@ -1,6 +1,12 @@
+"use client";
+
 import ScrollReveal from "@/components/ScrollReveal";
+import { useContactModal } from "@/context/ContactModalContext";
+import EmailCaptureInline from "@/components/EmailCaptureInline";
 
 export default function CTASection() {
+  const { openCalendarModal } = useContactModal();
+
   return (
     <section id="contact" className="py-24 bg-[#F4F6F9] text-[#1a1a1a] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4AF37]/5 rounded-full blur-[100px] pointer-events-none" />
@@ -26,9 +32,12 @@ export default function CTASection() {
 
           <ScrollReveal delay={120}>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-              <a href="https://calendar.app.google/gb3hrkXL4iTwSTET8" target="_blank" rel="noreferrer" className="dd-button-primary text-[15px] px-8 py-3.5 uppercase tracking-wider font-bold rounded-[8px]">
-                Prendre rendez-vous
-              </a>
+              <div className="flex flex-col items-center gap-3">
+                <button disabled className="dd-button-primary text-[15px] px-8 py-3.5 uppercase tracking-wider font-bold rounded-[8px] cursor-not-allowed opacity-40 grayscale">
+                  Prendre rendez-vous
+                </button>
+                <EmailCaptureInline />
+              </div>
               <a
                 href="https://fr.tradingview.com/u/DocteurDivergence/"
                 target="_blank"

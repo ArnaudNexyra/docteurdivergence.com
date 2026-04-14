@@ -1,6 +1,7 @@
 import AboutSection from "@/components/AboutSection";
 import AISection from "@/components/AISection";
 import CTASection from "@/components/CTASection";
+import FaqSection from "@/components/FaqSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
@@ -19,6 +20,7 @@ export default function Home() {
         <PricingSection />
         <TestimonialsSection />
         <AboutSection />
+        <FaqSection />
         <CTASection />
       </main>
       <Footer />

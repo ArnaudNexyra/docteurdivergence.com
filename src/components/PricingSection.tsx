@@ -2,6 +2,7 @@
 
 import ScrollReveal from "@/components/ScrollReveal";
 import { useContactModal } from "@/context/ContactModalContext";
+import EmailCaptureInline from "@/components/EmailCaptureInline";
 
 const features = [
   "Point complet sur ton niveau actuel et tes blocages",
@@ -142,20 +143,23 @@ export default function PricingSection() {
               ))}
             </ul>
 
-            <button
-              onClick={openContactModal}
-              className="dd-button-primary uppercase tracking-wider w-full"
-              style={{
-                textAlign: "center",
-                fontSize: 14,
-                padding: "16px 24px",
-                display: "block",
-                boxSizing: "border-box",
-                borderRadius: 8
-              }}
-            >
-              <span>Demander un premier échange</span>
-            </button>
+            <div className="flex flex-col items-center gap-3">
+              <button
+                disabled
+                className="dd-button-primary uppercase tracking-wider w-full cursor-not-allowed opacity-40 grayscale"
+                style={{
+                  textAlign: "center",
+                  fontSize: 14,
+                  padding: "16px 24px",
+                  display: "block",
+                  boxSizing: "border-box",
+                  borderRadius: 8
+                }}
+              >
+                <span>Demander un premier échange</span>
+              </button>
+              <EmailCaptureInline />
+            </div>
           </div>
         </ScrollReveal>
       </div>

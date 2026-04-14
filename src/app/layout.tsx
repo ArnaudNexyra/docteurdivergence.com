@@ -77,6 +77,8 @@ export const metadata: Metadata = {
 };
 
 import { ContactModalProvider } from "@/context/ContactModalContext";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import CookieBanner from "@/components/CookieBanner";
 
 export default function RootLayout({
   children,
@@ -91,6 +93,8 @@ export default function RootLayout({
       <body>
         <ContactModalProvider>
           {children}
+          <WhatsAppButton />
+          <CookieBanner />
         </ContactModalProvider>
       </body>
     </html>
