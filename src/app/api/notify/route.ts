@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     // 1. Notification à Natyem
-    await resend.emails.send({
+    const { error: err1 } = await resend.emails.send({
       from: "Docteur Divergence <trading@docteurdivergence.com>",
       to: NATYEM_EMAIL,
       subject: `Nouveau lead en attente d'ouverture : ${email}`,
@@ -40,8 +40,13 @@ export async function POST(request: Request) {
       `,
     });
 
+    if (err1) {
+      console.error("Resend error (Natyem):", err1);
+      return NextResponse.json({ error: err1.message }, { status: 500 });
+    }
+
     // 2. Confirmation au lead
-    await resend.emails.send({
+    const { error: err2 } = await resend.emails.send({
       from: "Docteur Divergence <trading@docteurdivergence.com>",
       to: email,
       subject: "Vous serez parmi les premiers prévenus — Docteur Divergence",
@@ -74,6 +79,11 @@ export async function POST(request: Request) {
         </div>
       `,
     });
+
+    if (err2) {
+      console.error("Resend error (lead):", err2);
+      return NextResponse.json({ error: err2.message }, { status: 500 });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {

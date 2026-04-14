@@ -71,22 +71,31 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    // Envoi des emails (Resend supporte le batching ou envois séparés)
     // Notification à Natyem
-    await resend.emails.send({
+    const { error: err1 } = await resend.emails.send({
       from: "Docteur Divergence <trading@docteurdivergence.com>",
       to: NATYEM_EMAIL,
       subject: `Nouveau contact : ${firstName} ${lastName}`,
       html: natyemEmailHtml,
     });
 
+    if (err1) {
+      console.error("Resend error (Natyem):", err1);
+      return NextResponse.json({ error: err1.message }, { status: 500 });
+    }
+
     // Confirmation au client
-    await resend.emails.send({
+    const { error: err2 } = await resend.emails.send({
       from: "Docteur Divergence <trading@docteurdivergence.com>",
       to: email,
       subject: "Confirmation de votre demande d’entretien — Docteur Divergence",
       html: clientEmailHtml,
     });
+
+    if (err2) {
+      console.error("Resend error (client):", err2);
+      return NextResponse.json({ error: err2.message }, { status: 500 });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
