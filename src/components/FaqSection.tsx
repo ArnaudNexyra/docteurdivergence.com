@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const faqs = [
   {
-    q: "C'est pour quel niveau de trader ?",
+    q: "À qui s'adresse nos services ?",
     a: "L'accompagnement s'adresse à tous les profils : débutants qui cherchent une méthode solide dès le départ, et traders actifs qui stagnent ou perdent régulièrement. Le premier appel permet justement de situer ton niveau et d'adapter la suite.",
   },
   {
