@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useContactModal } from "@/context/ContactModalContext";
 
 const navLinks = [
   { label: "Méthode", href: "#ai" },
@@ -11,14 +12,12 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ] as const;
 
-import { useContactModal } from "@/context/ContactModalContext";
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { openContactModal } = useContactModal();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24);
+    const handleScroll = () => setScrolled(window.scrollY > 80);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -26,16 +25,33 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 transition-all duration-300 border-b border-transparent"
+      className="fixed inset-x-0 top-0 z-50"
       style={{
-        backgroundColor: scrolled ? "rgba(255, 255, 255, 0.95)" : "rgba(255, 255, 255, 0.7)",
-        backdropFilter: "blur(18px)",
-        boxShadow: scrolled ? "0 4px 20px rgba(11, 42, 89, 0.05)" : "none",
-        borderBottomColor: scrolled ? "rgba(11, 42, 89, 0.05)" : "transparent"
+        backgroundColor: scrolled ? "transparent" : "rgba(255,255,255,0.95)",
+        backdropFilter: scrolled ? "none" : "blur(18px)",
+        boxShadow: scrolled ? "none" : "0 2px 20px rgba(11,42,89,0.06)",
+        borderBottom: scrolled ? "none" : "1px solid rgba(11,42,89,0.05)",
+        transition: "background-color 0.5s ease, backdrop-filter 0.5s ease, box-shadow 0.5s ease, border 0.5s ease",
       }}
     >
-      <div className="dd-container flex h-48 items-center justify-between gap-6">
-        <Link href="/" className="flex items-center gap-3 no-underline">
+      <div
+        className="dd-container flex items-center justify-between gap-6"
+        style={{
+          height: scrolled ? "60px" : "72px",
+          transition: "height 0.5s ease",
+        }}
+      >
+        {/* Logo — disparaît au scroll */}
+        <Link
+          href="/"
+          className="flex items-center gap-3 no-underline"
+          style={{
+            opacity: scrolled ? 0 : 1,
+            transform: scrolled ? "translateY(-6px)" : "translateY(0)",
+            transition: "opacity 0.4s ease, transform 0.4s ease",
+            pointerEvents: scrolled ? "none" : "auto",
+          }}
+        >
           <Image
             src="/images/logo-full.png"
             alt="Docteur Divergence"
@@ -46,7 +62,16 @@ export default function Navbar() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 text-[15px] font-bold text-[#0B2A59] md:flex uppercase tracking-wide">
+        {/* Nav — disparaît au scroll */}
+        <nav
+          className="hidden md:flex items-center gap-8 text-[15px] font-bold text-[#0B2A59] uppercase tracking-wide"
+          style={{
+            opacity: scrolled ? 0 : 1,
+            transform: scrolled ? "translateY(-6px)" : "translateY(0)",
+            transition: "opacity 0.4s ease, transform 0.4s ease",
+            pointerEvents: scrolled ? "none" : "auto",
+          }}
+        >
           {navLinks.map((link) => (
             <Link key={link.label} href={link.href} className="transition hover:text-[#D4AF37]">
               {link.label}
@@ -54,9 +79,18 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <button 
+        {/* Bouton — se réduit en bulle flottante au scroll */}
+        <button
           onClick={openContactModal}
-          className="dd-button-primary px-6 py-2.5 text-[14px] uppercase tracking-wider font-bold rounded-[6px]"
+          className="dd-button-primary font-bold uppercase tracking-wider"
+          style={{
+            padding: scrolled ? "8px 18px" : "10px 24px",
+            fontSize: scrolled ? "11px" : "14px",
+            borderRadius: scrolled ? "100px" : "6px",
+            boxShadow: scrolled ? "0 4px 20px rgba(11,42,89,0.25)" : "none",
+            transition: "all 0.5s ease",
+            whiteSpace: "nowrap",
+          }}
         >
           Réserver un appel
         </button>
