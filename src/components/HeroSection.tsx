@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
 import EmailCaptureInline from "@/components/EmailCaptureInline";
+import { useContactModal } from "@/context/ContactModalContext";
 
 import { highlights, quotes } from "@/lib/data";
 
 export default function HeroSection() {
+  const { openContactModal } = useContactModal();
   const [currentQuote, setCurrentQuote] = useState(0);
 
   useEffect(() => {
@@ -48,8 +50,14 @@ export default function HeroSection() {
 
           <ScrollReveal delay={180}>
             <div className="flex flex-wrap gap-4 relative z-10">
-              <div className="flex flex-col items-start gap-2">
-                <span className="dd-button-primary px-8 cursor-not-allowed opacity-40 grayscale pointer-events-none select-none">
+              <button
+                onClick={openContactModal}
+                className="dd-button-primary px-8"
+              >
+                Réserver un appel
+              </button>
+              <div className="flex flex-col items-start gap-1">
+                <span className="dd-button-secondary px-6 cursor-not-allowed opacity-40 grayscale pointer-events-none select-none text-sm">
                   Prendre rendez-vous
                 </span>
                 <EmailCaptureInline />

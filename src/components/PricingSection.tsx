@@ -143,23 +143,20 @@ export default function PricingSection() {
               ))}
             </ul>
 
-            <div className="flex flex-col items-center gap-3">
-              <button
-                disabled
-                className="dd-button-primary uppercase tracking-wider w-full cursor-not-allowed opacity-40 grayscale"
-                style={{
-                  textAlign: "center",
-                  fontSize: 14,
-                  padding: "16px 24px",
-                  display: "block",
-                  boxSizing: "border-box",
-                  borderRadius: 8
-                }}
-              >
-                <span>Demander un premier échange</span>
-              </button>
-              <EmailCaptureInline />
-            </div>
+            <button
+              onClick={openContactModal}
+              className="dd-button-primary uppercase tracking-wider w-full"
+              style={{
+                textAlign: "center",
+                fontSize: 14,
+                padding: "16px 24px",
+                display: "block",
+                boxSizing: "border-box",
+                borderRadius: 8
+              }}
+            >
+              <span>Réserver un appel — 60 €</span>
+            </button>
           </div>
         </ScrollReveal>
       </div>
