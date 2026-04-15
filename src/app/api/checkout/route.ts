@@ -10,6 +10,8 @@ export async function POST() {
       currency: "eur",
       automatic_payment_methods: { enabled: true },
       metadata: { product: "Appel de diagnostic — Docteur Divergence" },
+      description: "Appel de diagnostic trading — Docteur Divergence",
+      statement_descriptor_suffix: "DIAGTRADING",
     });
 
     return NextResponse.json({ clientSecret: paymentIntent.client_secret });
