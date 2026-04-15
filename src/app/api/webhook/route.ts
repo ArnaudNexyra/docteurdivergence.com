@@ -2,9 +2,6 @@ import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-const resend = new Resend(process.env.RESEND_API_KEY!);
-
 const NATYEM_EMAIL = "trading@docteurdivergence.com";
 const YEAR = new Date().getFullYear();
 
@@ -30,6 +27,9 @@ const emailWrapper = (content: string) => `
 export const config = { api: { bodyParser: false } };
 
 export async function POST(request: Request) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+  const resend = new Resend(process.env.RESEND_API_KEY!);
+
   const body = await request.text();
   const signature = request.headers.get("stripe-signature");
 
