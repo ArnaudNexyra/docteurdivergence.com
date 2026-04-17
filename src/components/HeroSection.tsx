@@ -4,13 +4,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ScrollReveal from "@/components/ScrollReveal";
-import EmailCaptureInline from "@/components/EmailCaptureInline";
 import { useContactModal } from "@/context/ContactModalContext";
 
 import { highlights, quotes } from "@/lib/data";
 
 export default function HeroSection() {
-  const { openContactModal } = useContactModal();
+  const { openContactModal, openCalendarModal } = useContactModal();
   const [currentQuote, setCurrentQuote] = useState(0);
 
   useEffect(() => {
@@ -56,12 +55,12 @@ export default function HeroSection() {
               >
                 Réserver un appel
               </button>
-              <div className="flex flex-col items-start gap-1">
-                <span className="dd-button-secondary px-6 cursor-not-allowed opacity-40 grayscale pointer-events-none select-none text-sm">
-                  Prendre rendez-vous
-                </span>
-                <EmailCaptureInline />
-              </div>
+              <button
+                onClick={openCalendarModal}
+                className="dd-button-secondary px-6 text-sm"
+              >
+                Prendre rendez-vous
+              </button>
               <a 
                 href="https://www.youtube.com/@doc.divergence" 
                 className="dd-button-secondary no-underline inline-flex items-center"

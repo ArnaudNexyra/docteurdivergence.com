@@ -2,10 +2,9 @@
 
 import ScrollReveal from "@/components/ScrollReveal";
 import { useContactModal } from "@/context/ContactModalContext";
-import EmailCaptureInline from "@/components/EmailCaptureInline";
 
 export default function CTASection() {
-  const { openContactModal } = useContactModal();
+  const { openContactModal, openCalendarModal } = useContactModal();
 
   return (
     <section id="contact" className="py-24 bg-[#F4F6F9] text-[#1a1a1a] relative overflow-hidden">
@@ -47,12 +46,12 @@ export default function CTASection() {
                 Rejoindre TradingView
               </a>
             </div>
-            <div className="mt-4 flex flex-col items-center gap-1">
-              <span className="dd-button-secondary text-[13px] px-6 py-2.5 uppercase tracking-wider font-bold rounded-[8px] cursor-not-allowed opacity-40 grayscale pointer-events-none select-none">
-                Prendre rendez-vous
-              </span>
-              <EmailCaptureInline />
-            </div>
+            <button
+              onClick={openCalendarModal}
+              className="dd-button-secondary text-[13px] px-6 py-2.5 uppercase tracking-wider font-bold rounded-[8px]"
+            >
+              Prendre rendez-vous
+            </button>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>

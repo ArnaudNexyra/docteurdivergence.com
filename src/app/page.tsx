@@ -5,6 +5,7 @@ import FaqSection from "@/components/FaqSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
+import MadeBySection from "@/components/MadeBySection";
 import Navbar from "@/components/Navbar";
 import PricingSection from "@/components/PricingSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -23,6 +24,7 @@ export default function Home() {
         <FaqSection />
         <CTASection />
       </main>
+      <MadeBySection />
       <Footer />
     </div>
   );
