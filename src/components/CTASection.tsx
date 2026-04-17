@@ -30,7 +30,7 @@ export default function CTASection() {
           </ScrollReveal>
 
           <ScrollReveal delay={120}>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
               <button
                 onClick={openContactModal}
                 className="dd-button-primary text-[15px] px-8 py-3.5 uppercase tracking-wider font-bold rounded-[8px]"
@@ -45,13 +45,13 @@ export default function CTASection() {
               >
                 Rejoindre TradingView
               </a>
+              <button
+                onClick={openCalendarModal}
+                className="dd-button-secondary text-[13px] px-6 py-2.5 uppercase tracking-wider font-bold rounded-[8px]"
+              >
+                Prendre rendez-vous
+              </button>
             </div>
-            <button
-              onClick={openCalendarModal}
-              className="dd-button-secondary text-[13px] px-6 py-2.5 uppercase tracking-wider font-bold rounded-[8px]"
-            >
-              Prendre rendez-vous
-            </button>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
