@@ -83,7 +83,7 @@ function StripeForm({
 
     onProcessing();
 
-    const { error } = await stripe.confirmPayment({
+    const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: { return_url: window.location.href },
       redirect: "if_required",
@@ -91,8 +91,12 @@ function StripeForm({
 
     if (error) {
       onError(error.message ?? "Le paiement a échoué. Réessayez.");
-    } else {
+    } else if (paymentIntent?.status === "succeeded") {
       onSuccess();
+    } else if (paymentIntent?.status === "requires_action") {
+      onError("Authentification 3D Secure requise. Veuillez réessayer.");
+    } else {
+      onError("Statut inattendu. Contactez-nous si vous avez été débité.");
     }
   };
 
