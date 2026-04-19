@@ -23,9 +23,6 @@ const emailWrapper = (content: string) => `
   </div>
 </div>`;
 
-// Désactive le body parsing — Stripe a besoin du raw body pour vérifier la signature
-export const config = { api: { bodyParser: false } };
-
 export async function POST(request: Request) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
   const resend = new Resend(process.env.RESEND_API_KEY!);

@@ -79,26 +79,38 @@ function StripeForm({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!stripe || !elements || loading) return;
-
     setLoading(true);
 
-    const { error, paymentIntent } = await stripe.confirmPayment({
-      elements,
-      confirmParams: { return_url: window.location.href },
-      redirect: "if_required",
-    });
+    try {
+      const timeoutPromise = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error("Délai dépassé (45s). Vérifiez votre connexion et réessayez.")), 45000)
+      );
 
-    if (error) {
+      const result = await Promise.race([
+        stripe.confirmPayment({
+          elements,
+          confirmParams: { return_url: window.location.href },
+          redirect: "if_required",
+        }),
+        timeoutPromise,
+      ]) as Awaited<ReturnType<typeof stripe.confirmPayment>>;
+
+      if ("error" in result && result.error) {
+        onError(result.error.message ?? "Le paiement a échoué. Réessayez.");
+      } else if ("paymentIntent" in result) {
+        const { status } = result.paymentIntent as { status: string };
+        if (status === "succeeded") {
+          onSuccess();
+        } else if (status === "requires_payment_method") {
+          onError("Votre carte a été refusée. Essayez avec une autre carte.");
+        } else {
+          onError(`Statut inattendu (${status}). Contactez-nous si vous avez été débité.`);
+        }
+      }
+    } catch (err) {
+      onError(err instanceof Error ? err.message : "Erreur de connexion au serveur de paiement.");
+    } finally {
       setLoading(false);
-      onError(error.message ?? "Le paiement a échoué. Réessayez.");
-    } else if (paymentIntent?.status === "succeeded") {
-      onSuccess();
-    } else if (paymentIntent?.status === "requires_action") {
-      setLoading(false);
-      onError("Authentification 3D Secure requise. Veuillez réessayer.");
-    } else {
-      setLoading(false);
-      onError("Statut inattendu. Contactez-nous si vous avez été débité.");
     }
   };
 
@@ -107,7 +119,7 @@ function StripeForm({
       <PaymentElement
         options={{
           layout: "tabs",
-          wallets: { applePay: "auto", googlePay: "auto" },
+          wallets: { applePay: "never", googlePay: "never" },
         }}
       />
       <button
