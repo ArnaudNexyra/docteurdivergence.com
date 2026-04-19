@@ -82,30 +82,27 @@ function StripeForm({
     setLoading(true);
 
     try {
-      const timeoutPromise = new Promise<never>((_, reject) =>
-        setTimeout(() => reject(new Error("Délai dépassé (45s). Vérifiez votre connexion et réessayez.")), 45000)
-      );
+      // Requis en v6+ : valider le formulaire avant de confirmer
+      const { error: submitError } = await elements.submit();
+      if (submitError) {
+        onError(submitError.message ?? "Données de carte invalides.");
+        return;
+      }
 
-      const result = await Promise.race([
-        stripe.confirmPayment({
-          elements,
-          confirmParams: { return_url: window.location.href },
-          redirect: "if_required",
-        }),
-        timeoutPromise,
-      ]) as Awaited<ReturnType<typeof stripe.confirmPayment>>;
+      const { error, paymentIntent } = await stripe.confirmPayment({
+        elements,
+        confirmParams: { return_url: window.location.href },
+        redirect: "if_required",
+      });
 
-      if ("error" in result && result.error) {
-        onError(result.error.message ?? "Le paiement a échoué. Réessayez.");
-      } else if ("paymentIntent" in result) {
-        const { status } = result.paymentIntent as { status: string };
-        if (status === "succeeded") {
-          onSuccess();
-        } else if (status === "requires_payment_method") {
-          onError("Votre carte a été refusée. Essayez avec une autre carte.");
-        } else {
-          onError(`Statut inattendu (${status}). Contactez-nous si vous avez été débité.`);
-        }
+      if (error) {
+        onError(error.message ?? "Le paiement a échoué. Réessayez.");
+      } else if (paymentIntent?.status === "succeeded") {
+        onSuccess();
+      } else if (paymentIntent?.status === "requires_payment_method") {
+        onError("Votre carte a été refusée. Essayez avec une autre carte.");
+      } else {
+        onError(`Statut inattendu (${paymentIntent?.status}). Contactez-nous si vous avez été débité.`);
       }
     } catch (err) {
       onError(err instanceof Error ? err.message : "Erreur de connexion au serveur de paiement.");
