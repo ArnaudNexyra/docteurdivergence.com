@@ -67,21 +67,20 @@ function ProgressBar({ step }: { step: Step }) {
 
 function StripeForm({
   onSuccess,
-  onProcessing,
   onError,
 }: {
   onSuccess: () => void;
-  onProcessing: () => void;
   onError: (msg: string) => void;
 }) {
   const stripe = useStripe();
   const elements = useElements();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!stripe || !elements) return;
+    if (!stripe || !elements || loading) return;
 
-    onProcessing();
+    setLoading(true);
 
     const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
@@ -90,12 +89,15 @@ function StripeForm({
     });
 
     if (error) {
+      setLoading(false);
       onError(error.message ?? "Le paiement a échoué. Réessayez.");
     } else if (paymentIntent?.status === "succeeded") {
       onSuccess();
     } else if (paymentIntent?.status === "requires_action") {
+      setLoading(false);
       onError("Authentification 3D Secure requise. Veuillez réessayer.");
     } else {
+      setLoading(false);
       onError("Statut inattendu. Contactez-nous si vous avez été débité.");
     }
   };
@@ -110,11 +112,15 @@ function StripeForm({
       />
       <button
         type="submit"
-        disabled={!stripe || !elements}
+        disabled={!stripe || !elements || loading}
         className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#0B2A59] py-4 text-sm font-bold uppercase tracking-wider text-[#D4AF37] shadow-lg transition hover:scale-[1.01] active:scale-[0.98] disabled:opacity-50"
       >
-        <Lock size={14} />
-        Payer 60 € en toute sécurité
+        {loading ? (
+          <div className="h-4 w-4 animate-spin rounded-full border-2 border-[#D4AF37]/30 border-t-[#D4AF37]" />
+        ) : (
+          <Lock size={14} />
+        )}
+        {loading ? "Traitement en cours…" : "Payer 60 € en toute sécurité"}
       </button>
     </form>
   );
@@ -268,7 +274,6 @@ export default function PaymentModal({
                   >
                     <StripeForm
                       onSuccess={handleSuccess}
-                      onProcessing={() => setStep("processing")}
                       onError={handleError}
                     />
                   </Elements>
