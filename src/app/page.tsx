@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import AboutSection from "@/components/AboutSection";
 import AISection from "@/components/AISection";
 import CTASection from "@/components/CTASection";
@@ -9,8 +13,18 @@ import MadeBySection from "@/components/MadeBySection";
 import Navbar from "@/components/Navbar";
 import PricingSection from "@/components/PricingSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import { useContactModal } from "@/context/ContactModalContext";
 
-export default function Home() {
+function HomeInner() {
+  const params = useSearchParams();
+  const { openContactModal } = useContactModal();
+
+  useEffect(() => {
+    if (params.get("showContact") === "1") {
+      setTimeout(openContactModal, 500);
+    }
+  }, []);
+
   return (
     <div className="bg-white text-[#1a1a1a] min-h-screen overflow-x-hidden">
       <Navbar />
@@ -28,4 +42,8 @@ export default function Home() {
       <Footer />
     </div>
   );
+}
+
+export default function Home() {
+  return <HomeInner />;
 }

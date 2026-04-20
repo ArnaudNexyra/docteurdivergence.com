@@ -6,8 +6,6 @@ import PaymentModal from "@/components/PaymentModal";
 
 type PostPaymentAction = "contact" | "calendar";
 
-const CALENDAR_URL = "https://calendar.app.google/gb3hrkXL4iTwSTET8";
-
 interface ContactModalContextType {
   openContactModal: () => void;
   openCalendarModal: () => void;
@@ -19,30 +17,11 @@ const ContactModalContext = createContext<ContactModalContextType | undefined>(u
 export function ContactModalProvider({ children }: { children: ReactNode }) {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
-  const [postPaymentAction, setPostPaymentAction] = useState<PostPaymentAction>("contact");
+  const [action, setAction] = useState<PostPaymentAction>("contact");
 
-  const openContactModal = () => {
-    setPostPaymentAction("contact");
-    setIsPaymentOpen(true);
-  };
-
-  const openCalendarModal = () => {
-    setPostPaymentAction("calendar");
-    setIsPaymentOpen(true);
-  };
-
-  const closeContactModal = () => {
-    setIsContactOpen(false);
-    setIsPaymentOpen(false);
-  };
-
-  const handlePaymentSuccess = () => {
-    if (postPaymentAction === "calendar") {
-      window.open(CALENDAR_URL, "_blank", "noreferrer");
-    } else {
-      setIsContactOpen(true);
-    }
-  };
+  const openContactModal = () => { setAction("contact"); setIsPaymentOpen(true); };
+  const openCalendarModal = () => { setAction("calendar"); setIsPaymentOpen(true); };
+  const closeContactModal = () => { setIsContactOpen(false); setIsPaymentOpen(false); };
 
   return (
     <ContactModalContext.Provider value={{ openContactModal, openCalendarModal, closeContactModal }}>
@@ -50,7 +29,7 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
       <PaymentModal
         isOpen={isPaymentOpen}
         onClose={() => setIsPaymentOpen(false)}
-        onSuccess={handlePaymentSuccess}
+        action={action}
         amount={60}
         label="Appel de diagnostic"
       />
