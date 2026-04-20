@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Loader2 } from "lucide-react";
 
 const CALENDAR_URL = "https://calendar.app.google/gb3hrkXL4iTwSTET8";
 
-export default function SuccessPage() {
+function SuccessInner() {
   const params = useSearchParams();
   const sessionId = params.get("session_id");
   const action = params.get("action") ?? "contact";
@@ -96,5 +96,13 @@ export default function SuccessPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense>
+      <SuccessInner />
+    </Suspense>
   );
 }
