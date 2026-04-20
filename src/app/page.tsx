@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import AboutSection from "@/components/AboutSection";
 import AISection from "@/components/AISection";
@@ -45,5 +45,9 @@ function HomeInner() {
 }
 
 export default function Home() {
-  return <HomeInner />;
+  return (
+    <Suspense>
+      <HomeInner />
+    </Suspense>
+  );
 }
